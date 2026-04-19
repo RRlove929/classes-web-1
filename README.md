@@ -1,5 +1,5 @@
 <div>
-    <img src="distribution/images/logo.jpg" alt="领课教育系统-开源版"/>
+    <img src="distribution/images/logo.jpg" alt="在线防灾教育系统-开源版"/>
     <div>    
         <a href="http://spring.io/projects/spring-boot">
             <img src="https://img.shields.io/badge/spring--boot-2.6.3-blue.svg" alt="spring-boot">
@@ -24,7 +24,7 @@
 
 ### 项目介绍
 
-领课教育系统（roncoo-education）是基于领课网络多年的在线教育平台开发和运营经验打造出来的产品，致力于打造一个各行业都适用的分布式在线教育系统。系统采用前后端分离模式，前台采用vue.js为核心框架，后台采用Spring
+在线防灾教育系统（roncoo-education）是基于在线防灾网络多年的在线教育平台开发和运营经验打造出来的产品，致力于打造一个各行业都适用的分布式在线教育系统。系统采用前后端分离模式，前台采用vue.js为核心框架，后台采用Spring
 Cloud为核心框架。系统目前主要功能有课程点播功能，支持多家视频云的接入，课程附件管理功能，支持多家存储云的接入，可以帮助个人或者企业快速搭建一个轻量级的在线教育平台。
 
 <table>
@@ -63,5 +63,5 @@ Cloud为核心框架。系统目前主要功能有课程点播功能，支持多
 
 <div>
 <div>关注微信公众号可获取更多学习资料（SQL脚本、部署教程、常见问题等）</div>
-<img src="distribution/images/gzh.png" alt="领课开源-微信公众号" width="600"/>
+<img src="distribution/images/gzh.png" alt="在线防灾开源-微信公众号" width="600"/>
 </div>

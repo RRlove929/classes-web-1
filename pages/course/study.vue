@@ -211,7 +211,7 @@
     // 清除内容
     document.getElementById('player').innerHTML = ''
     if (playRes.vodPlatform === 1) {
-      // 领课云
+      // 在线防灾云
       polyvPlayerClient = getClientForPri(playRes, courseInfo.value.speedDouble, courseInfo.value.speedDrag)
       polyvPlayerClient.on('s2j_onVideoPlay', function () {
         // 开始播放
@@ -262,10 +262,8 @@
         }
       })
       .catch((error) => {
-        polyvPlayerClient.j2s_pauseVideo()
-        ElMessageBox.confirm('系统异常将暂停观看，请联系管理员', '提示', { confirmButtonText: '返回', cancelButtonText: '取消', type: 'warning' }).then(() => {
-          handleBack()
-        })
+        // 不做处理，让视频继续播放
+        console.error('记录进度时出现异常:', error)
       })
   }
 
@@ -283,14 +281,14 @@
         }
       })
       .catch((error) => {
-        ElMessageBox.confirm('系统异常将暂停观看，请联系管理员', '提示', { confirmButtonText: '返回', cancelButtonText: '取消', type: 'warning' }).then(() => {
-          handleBack()
-        })
+        // 不做处理，让视频继续播放
+        console.error('记录进度时出现异常:', error)
       })
   }
 
   // tab切换
   const cateType = ref('chapter')
+
   function handleTab(item) {
     if (item === cateType.value) {
       cateType.value = ''
@@ -358,15 +356,19 @@
     line-height: 66px;
     margin: 0 auto;
     font-size: 18px;
+
     .cursor-image {
       width: 20px;
     }
+
     .header-left {
       margin-left: 20px;
+
       .header-course {
         margin-left: 20px;
       }
     }
+
     .header-right {
       margin-right: 20px;
       display: flex;
@@ -376,16 +378,20 @@
 
   .video-body {
     background: #000;
+
     .video-content {
       display: flex;
       flex-wrap: nowrap;
       justify-content: space-between;
+
       .player-box {
         width: calc(100% - 66px);
         padding: 10px 20px;
+
         .player-video {
           height: calc(100vh - 86px);
         }
+
         .study-tip {
           height: calc(100vh - 86px);
           display: flex;
@@ -401,30 +407,37 @@
         background: #1c1f21;
         display: flex;
         flex-direction: row-reverse;
+
         .video-info-tab {
           width: 80px;
           margin-top: calc(50vh - 120px);
           font-size: 16px;
+
           .video-info-button {
             color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px 0;
+
             .img-icon {
               width: 25px;
             }
+
             &:hover {
               background-color: #333;
             }
           }
+
           .on {
             background-color: #333;
           }
         }
+
         .content {
           display: block;
         }
+
         .video-info-content {
           background-color: #333;
           color: #fff;
@@ -432,32 +445,39 @@
           padding: 20px;
           height: calc(100vh - 86px);
           overflow: auto;
+
           .catalog-chapter {
             font-size: 16px;
             margin: 15px 0;
           }
+
           .catalog-chapter-period {
             font-size: 14px;
             margin: 10px;
+
             &:hover {
               color: red;
             }
+
             .period-name {
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
               width: 350px;
             }
+
             .period-progress {
               height: 20px;
               width: 300px;
               margin-left: 50px;
             }
+
             .period-live {
               font-size: 12px;
               text-align: right;
             }
           }
+
           .on {
             color: #2256f6;
           }

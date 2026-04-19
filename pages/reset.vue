@@ -56,7 +56,7 @@
   useHead({
     title: '密码重置',
     meta: [
-      { hid: 'keywords', name: 'keywords', content: '领课网络、在线教育系统、开源教育系统、roncoo-education' },
+      { hid: 'keywords', name: 'keywords', content: '在线防灾网络、在线教育系统、开源教育系统、roncoo-education' },
       { hid: 'description', name: 'description', content: websiteInfo.value?.websiteDesc }
     ]
   })

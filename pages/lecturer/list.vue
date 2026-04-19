@@ -27,7 +27,7 @@
   useHead({
     title: '讲师列表',
     meta: [
-      { hid: 'keywords', name: 'keywords', content: '领课网络、在线教育系统、开源教育系统、roncoo-education' },
+      { hid: 'keywords', name: 'keywords', content: '在线防灾网络、在线教育系统、开源教育系统、roncoo-education' },
       { hid: 'description', name: 'description', content: data.value?.websiteDesc }
     ]
   })

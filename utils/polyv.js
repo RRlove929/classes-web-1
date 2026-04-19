@@ -26,7 +26,7 @@ export function getClient(playRes, speedDouble, speedDrag) {
 }
 
 /**
- * 获取播放器实例(这里领课云使用保利威播放器，因为领课云使用的是标准的视频播放格式，支持通用的播放器)
+ * 获取播放器实例(这里在线防灾云使用保利威播放器，因为在线防灾云使用的是标准的视频播放格式，支持通用的播放器)
  * @param playRes
  * @param speedDouble
  * @param speedDrag
