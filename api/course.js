@@ -53,5 +53,10 @@ export const courseApi = {
   // 课程收藏添加
   courseCollectAdd: (params = {}) => {
     return postRequest('/course/auth/user/course/collect/add', params)
+  },
+
+  // 课程评分（每个用户每个课程只能评分一次）
+  courseScoreAdd: (params = {}) => {
+    return postRequest('/course/auth/user/course/score/add', params)
   }
 }
