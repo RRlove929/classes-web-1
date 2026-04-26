@@ -17,7 +17,13 @@
                 <el-input v-model="userInfo.nickname" size="large" placeholder="请输入昵称" />
               </el-form-item>
               <el-form-item label="生日：">
-                <el-date-picker v-model="userInfo.userAge" value-format="YYYY-MM-DD" format="YYYY-MM-DD" type="date" placeholder="请选择出生日期" />
+                <el-date-picker
+                  v-model="userInfo.birthday"
+                  value-format="YYYY-MM-DD"
+                  format="YYYY-MM-DD"
+                  type="date"
+                  placeholder="请选择出生日期"
+                />
               </el-form-item>
               <el-form-item label="">
                 <el-button type="primary" size="large" @click="onSubmit"> 保存设置 </el-button>
@@ -136,21 +142,36 @@
     })
   }
 
-  const onSubmit = () => {
-    if (!userInfo.value.nickname) {
-      ElMessage.warning('请输入昵称')
-      return
+
+
+    const calcAge = (birthdayStr) => {
+      if (!birthdayStr) return null
+      const birth = new Date(birthdayStr)
+      const now = new Date()
+      let age = now.getFullYear() - birth.getFullYear()
+      const m = now.getMonth() - birth.getMonth()
+      if (m < 0 || (m === 0 && now.getDate() < birth.getDate())) age--
+      return age
     }
 
-    if (userInfo.value.userAge < 0) {
-      ElMessage.warning('请输入正确的年龄')
-      return
-    }
+    const onSubmit = () => {
+      if (!userInfo.value.nickname) {
+        ElMessage.warning('请输入昵称')
+        return
+      }
 
-    userApi.usersUpdata(userInfo.value).then((res) => {
-      ElMessage.info(res)
-    })
-  }
+      // birthday -> userAge（后端还要求 userAge 必填）
+      const age = calcAge(userInfo.value.birthday)
+      if (age == null || age < 0) {
+        ElMessage.warning('请选择正确的出生日期')
+        return
+      }
+      userInfo.value.userAge = age
+
+      userApi.usersUpdata(userInfo.value).then((res) => {
+        ElMessage.success(res)
+      })
+    }
 </script>
 <style lang="scss" scoped>
   .el-form {
